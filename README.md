@@ -71,6 +71,17 @@
       <span class="tag">#inspiration</span>
     </div>
 
+    <div class="quote">
+  <p>"Every moment is a fresh beginning."</p>
+  <span class="tag">#inspiration</span>
+</div>
+
+<div class="quote">
+  <p>"Creativity is intelligence having fun."</p>
+  <span class="tag">#creativity</span>
+</div>
+
+
     <!-- Disqus comment embed (you can replace shortname later) -->
     <div id="disqus_thread" style="margin-top: 4rem;"></div>
     <script>

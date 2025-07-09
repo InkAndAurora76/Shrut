@@ -106,9 +106,7 @@
   <header>QuoteGalaxy</header>
   <div class="container">
     <button class="random-btn" onclick="showRandomQuote()">Show Random Quote</button>
-    <div id="quoteContainer">
-      <!-- Quotes will appear here dynamically -->
-    </div>
+    <div id="quoteContainer"></div>
 
     <div class="support-section">
       <h3>Support QuoteGalaxy 💖</h3>
@@ -118,7 +116,6 @@
       <p style="font-size: 0.9rem; color: #777;">Thank you for supporting this little blog!</p>
     </div>
 
-    <!-- Disqus -->
     <div id="disqus_thread" style="margin-top: 4rem;"></div>
     <script>
       var disqus_config = function () {
@@ -140,26 +137,59 @@
 
   <script>
     const quotes = [
+      // English Quotes (24)
       { text: "Believe in yourself and all that you are.", tag: "#motivation" },
-      { text: "हर दिन एक नई शुरुआत है।", tag: "#नईशुरुआत" },
-      { text: "સફળતા એ શ્રમનો પરિણામ છે.", tag: "#સફળતા" },
       { text: "Do what you can, with what you have, where you are.", tag: "#action" },
-      { text: "जो समय को बर्बाद करता है, समय उसे बर्बाद कर देता है।", tag: "#समय" },
       { text: "Turn your wounds into wisdom.", tag: "#wisdom" },
       { text: "Happiness depends upon ourselves.", tag: "#happiness" },
-      { text: "સારા વિચારો સારું જીવન આપે છે.", tag: "#વિચાર" },
       { text: "Dream big and dare to fail.", tag: "#dreams" },
       { text: "If you can dream it, you can do it.", tag: "#believe" },
-      { text: "सपने वो नहीं जो नींद में आए, सपने वो हैं जो नींद नहीं आने दें।", tag: "#सपना" },
-      { text: "મહેનત કરે તે જીતે છે.", tag: "#મહેનત" },
       { text: "Push yourself, because no one else is going to do it for you.", tag: "#push" },
       { text: "You miss 100% of the shots you don’t take.", tag: "#opportunity" },
-      { text: "बड़ा सोचो, बड़ा करो।", tag: "#सोच" },
       { text: "Every moment is a fresh beginning.", tag: "#inspiration" },
-      { text: "જેમ ચિંતા કરો તેમ બને.", tag: "#વિચાર" },
       { text: "What we think, we become.", tag: "#thoughts" },
       { text: "The harder you work for something, the greater you’ll feel when you achieve it.", tag: "#hardwork" },
-      { text: "सच्ची सफलता आत्मसंतोष है।", tag: "#सफलता" }
+      { text: "Change the world by being yourself.", tag: "#selflove" },
+      { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", tag: "#success" },
+      { text: "Act as if what you do makes a difference. It does.", tag: "#impact" },
+      { text: "Keep your face always toward the sunshine—and shadows will fall behind you.", tag: "#positivity" },
+      { text: "It always seems impossible until it’s done.", tag: "#perseverance" },
+      { text: "With the new day comes new strength and new thoughts.", tag: "#newbeginnings" },
+      { text: "Be the change that you wish to see in the world.", tag: "#change" },
+      { text: "Strive not to be a success, but rather to be of value.", tag: "#value" },
+      { text: "The best time to plant a tree was 20 years ago. The second best time is now.", tag: "#now" },
+      { text: "An unexamined life is not worth living.", tag: "#philosophy" },
+      { text: "Whether you think you can or you think you can’t, you’re right.", tag: "#mindset" },
+      { text: "Do one thing every day that scares you.", tag: "#courage" },
+      { text: "Everything you can imagine is real.", tag: "#imagination" },
+
+      // Hindi Quotes (12)
+      { text: "हर दिन एक नई शुरुआत है।", tag: "#नईशुरुआत" },
+      { text: "जो समय को बर्बाद करता है, समय उसे बर्बाद कर देता है।", tag: "#समय" },
+      { text: "सपने वो नहीं जो नींद में आए, सपने वो हैं जो नींद नहीं आने दें।", tag: "#सपना" },
+      { text: "बड़ा सोचो, बड़ा करो।", tag: "#सोच" },
+      { text: "सच्ची सफलता आत्मसंतोष है।", tag: "#सफलता" },
+      { text: "कठिनाइयाँ आपको मजबूत बनाती हैं।", tag: "#साहस" },
+      { text: "जहां चाह, वहां राह।", tag: "#motivation" },
+      { text: "सपने वो नहीं जो हम सोते समय देखते हैं, सपने वो हैं जो हमें सोने नहीं देते।", tag: "#dream" },
+      { text: "हर सफलता के पीछे मेहनत की कहानी होती है।", tag: "#story" },
+      { text: "इंसान अपने विचारों से महान बनता है।", tag: "#thought" },
+      { text: "मुश्किलें केवल सबसे बहादुर को चुनती हैं।", tag: "#challenge" },
+      { text: "आज का काम कभी कल पर मत छोड़ो।", tag: "#discipline" },
+
+      // Gujarati Quotes (12)
+      { text: "સફળતા એ શ્રમનો પરિણામ છે.", tag: "#સફળતા" },
+      { text: "સારા વિચારો સારું જીવન આપે છે.", tag: "#વિચાર" },
+      { text: "મહેનત કરે તે જીતે છે.", tag: "#મહેનત" },
+      { text: "જેમ ચિંતા કરો તેમ બને.", tag: "#વિચાર" },
+      { text: "નાનું પગલું પણ સફળતાની દિશામાં મોટું છે.", tag: "#પ્રેરણા" },
+      { text: "વિજ્ઞાન એ સમજવાનો માર્ગ છે.", tag: "#જ્ઞાન" },
+      { text: "આજે તમે શું કરો છો એ જ તમારું આવતીકાલ બનાવે છે.", tag: "#ફ્યુચર" },
+      { text: "વિનમ્રતા એ સાચી શક્તિ છે.", tag: "#મુલ્ય" },
+      { text: "જીવન એ એક સફર છે, સ્પર્ધા નહીં.", tag: "#શાંતિ" },
+      { text: "સમયની કિંમત સમજો, તે પાછો નહીં આવે.", tag: "#સમય" },
+      { text: "વિજય એ શરૂઆતથી થતો નથી, તે સતત પ્રયાસથી આવે છે.", tag: "#વિજય" },
+      { text: "પ્રેમ અને સંસ્કાર માણસને મહાન બનાવે છે.", tag: "#માણસતા" }
     ];
 
     function showRandomQuote() {
@@ -196,4 +226,3 @@
   </script>
 </body>
 </html>
-

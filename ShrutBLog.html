@@ -146,7 +146,7 @@
 </head>
 <body>
   <button class="toggle-dark" onclick="toggleDarkMode()">
-    <i id="modeIcon" class="lucide" data-lucide="moon"></i>
+    <i id="modeIcon" data-lucide="moon"></i>
   </button>
   <header>QuoteGalaxy</header>
   <div class="container">
@@ -182,57 +182,59 @@
 
   <script>
     const quotes = [
-      // 24 English
+      // 24 English Quotes
       { text: "Believe in yourself and all that you are.", tag: "#motivation" },
       { text: "Do what you can, with what you have, where you are.", tag: "#action" },
       { text: "Turn your wounds into wisdom.", tag: "#wisdom" },
       { text: "Happiness depends upon ourselves.", tag: "#happiness" },
       { text: "Dream big and dare to fail.", tag: "#dreams" },
       { text: "If you can dream it, you can do it.", tag: "#believe" },
-      { text: "Push yourself, because no one else is going to do it for you.", tag: "#push" },
-      { text: "You miss 100% of the shots you don’t take.", tag: "#opportunity" },
-      { text: "Every moment is a fresh beginning.", tag: "#inspiration" },
-      { text: "What we think, we become.", tag: "#thoughts" },
-      { text: "The harder you work, the luckier you get.", tag: "#hardwork" },
-      { text: "Big journeys begin with small steps.", tag: "#journey" },
-      { text: "Success doesn’t come to you. You go to it.", tag: "#success" },
-      { text: "Change the world by being yourself.", tag: "#life" },
-      { text: "Never stop learning because life never stops teaching.", tag: "#learning" },
-      { text: "The best view comes after the hardest climb.", tag: "#climb" },
-      { text: "Stay positive. Work hard. Make it happen.", tag: "#positive" },
-      { text: "Be somebody who makes everybody feel like a somebody.", tag: "#kindness" },
-      { text: "Hustle in silence and let your success make the noise.", tag: "#hustle" },
-      { text: "Success is not the key to happiness. Happiness is the key to success.", tag: "#success" },
-      { text: "Don’t wait. The time will never be just right.", tag: "#time" },
-      { text: "The expert in anything was once a beginner.", tag: "#growth" },
-      { text: "A goal without a plan is just a wish.", tag: "#planning" },
-      { text: "Work hard in silence. Let success be your noise.", tag: "#grind" },
-      // 12 Hindi
+      { text: "The only limit to our realization of tomorrow is our doubts of today.", tag: "#future" },
+      { text: "Change your thoughts and you change your world.", tag: "#thoughts" },
+      { text: "Success is not final, failure is not fatal.", tag: "#success" },
+      { text: "Keep your face always toward the sunshine.", tag: "#positivity" },
+      { text: "Don’t watch the clock; do what it does. Keep going.", tag: "#time" },
+      { text: "Action is the foundational key to all success.", tag: "#key" },
+      { text: "You are never too old to set another goal.", tag: "#goal" },
+      { text: "Try to be a rainbow in someone's cloud.", tag: "#kindness" },
+      { text: "Believe you can and you're halfway there.", tag: "#believe" },
+      { text: "Success usually comes to those who are too busy to be looking for it.", tag: "#work" },
+      { text: "In the middle of difficulty lies opportunity.", tag: "#challenge" },
+      { text: "Great minds discuss ideas; average minds discuss events.", tag: "#mindset" },
+      { text: "Do not wait to strike till the iron is hot.", tag: "#opportunity" },
+      { text: "Well done is better than well said.", tag: "#action" },
+      { text: "If you're going through hell, keep going.", tag: "#perseverance" },
+      { text: "Strive not to be a success, but to be of value.", tag: "#value" },
+      { text: "The best revenge is massive success.", tag: "#revenge" },
+      { text: "Your time is limited, so don’t waste it.", tag: "#time" },
+
+      // 12 Hindi Quotes
       { text: "हर दिन एक नई शुरुआत है।", tag: "#नईशुरुआत" },
       { text: "जो समय को बर्बाद करता है, समय उसे बर्बाद कर देता है।", tag: "#समय" },
       { text: "सपने वो नहीं जो नींद में आए, सपने वो हैं जो नींद नहीं आने दें।", tag: "#सपना" },
-      { text: "बड़ा सोचो, बड़ा करो।", tag: "#सोच" },
-      { text: "सच्ची सफलता आत्मसंतोष है।", tag: "#सफलता" },
-      { text: "कड़ी मेहनत का फल मीठा होता है।", tag: "#मेहनत" },
-      { text: "जो होता है अच्छे के लिए होता है।", tag: "#भरोसा" },
-      { text: "अपने आप में विश्वास रखो।", tag: "#आत्मविश्वास" },
-      { text: "मन की शक्ति ही सबसे बड़ी शक्ति है।", tag: "#शक्ति" },
-      { text: "हर परिस्थिति एक अवसर है।", tag: "#अवसर" },
-      { text: "जो गिरता है वही उठना सीखता है।", tag: "#सीख" },
-      { text: "ईमानदारी सबसे बड़ी नीति है।", tag: "#ईमानदारी" },
-      // 12 Gujarati
+      { text: "कभी हार मत मानो।", tag: "#संघर्ष" },
+      { text: "अपने लक्ष्य की ओर ध्यान केंद्रित करो।", tag: "#लक्ष्य" },
+      { text: "समय सबसे बड़ा धन है।", tag: "#समय" },
+      { text: "धैर्य सफलता की कुंजी है।", tag: "#धैर्य" },
+      { text: "श्रम का फल मीठा होता है।", tag: "#मेहनत" },
+      { text: "अच्छा सोचो, अच्छा होगा।", tag: "#सोच" },
+      { text: "जहाँ चाह वहाँ राह।", tag: "#प्रेरणा" },
+      { text: "खुद पर विश्वास रखो।", tag: "#आत्मविश्वास" },
+      { text: "कर्म ही पूजा है।", tag: "#कर्म" },
+
+      // 12 Gujarati Quotes
       { text: "સફળતા એ શ્રમનો પરિણામ છે.", tag: "#સફળતા" },
       { text: "સારા વિચારો સારું જીવન આપે છે.", tag: "#વિચાર" },
       { text: "મહેનત કરે તે જીતે છે.", tag: "#મહેનત" },
-      { text: "જેમ ચિંતા કરો તેમ બને.", tag: "#વિચાર" },
-      { text: "વિજય એ ધીરજ ધરનારનો હોય છે.", tag: "#ધીરજ" },
-      { text: "શ્રમ કરશો તો સફળતા મળશે.", tag: "#શ્રમ" },
-      { text: "વિશ્રામ પછી કાર્યને વધુ શક્તિથી કરો.", tag: "#ઉર્જા" },
-      { text: "શ્રદ્ધા અને વિશ્વાસથી કામ કરો.", tag: "#વિશ્વાસ" },
-      { text: "દરેક મુશ્કેલી પાછળ કોઈ તક છુપાયેલી હોય છે.", tag: "#તક" },
-      { text: "અનુભવ એ શ્રેષ્ઠ શિક્ષક છે.", tag: "#અનુભવ" },
-      { text: "શાંતિ એ આંતરિક બાબત છે.", tag: "#શાંતિ" },
-      { text: "સતત પ્રયત્નોથી સફળતા મળે છે.", tag: "#પ્રયત્ન" }
+      { text: "સપના જુઓ અને તેને પૂરા કરો.", tag: "#સપના" },
+      { text: "સફળતા પગલાંઓથી મળે છે.", tag: "#પ્રયત્ન" },
+      { text: "શાંતિથી કામ કરો અને આગળ વધો.", tag: "#શાંતિ" },
+      { text: "વિશ્વાસ રાખો, બધું સારું થશે.", tag: "#વિશ્વાસ" },
+      { text: "સમયની કદર કરો.", tag: "#સમય" },
+      { text: "ઘણી વાર શાંતિમાં શક્તિ હોય છે.", tag: "#શક્તિ" },
+      { text: "સકારાત્મક રહો અને સફળતા મેળવો.", tag: "#સકારાત્મક" },
+      { text: "મફતનો સુઝાવ નથી આવતો.", tag: "#જ્ઞાન" },
+      { text: "ખુશ રહો અને હંમેશા શીખો.", tag: "#ખુશી" }
     ];
 
     function showRandomQuote() {

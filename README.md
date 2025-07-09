@@ -1,8 +1,13 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuoteGalaxy</title>
+
+  <!-- AdSense Verification Code (add yours below if needed) -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+          crossorigin="anonymous"></script> -->
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -70,16 +75,37 @@
       <p>"In the middle of every difficulty lies opportunity."</p>
       <span class="tag">#inspiration</span>
     </div>
-  <div class="quote">
-  <p>"Every moment is a fresh beginning."</p>
-  <span class="tag">#inspiration</span>
-</div>
+    <div class="quote">
+      <p>"Every moment is a fresh beginning."</p>
+      <span class="tag">#inspiration</span>
+    </div>
+    <div class="quote">
+      <p>"Creativity is intelligence having fun."</p>
+      <span class="tag">#creativity</span>
+    </div>
+    <div class="quote">
+      <p>"Success is not the key to happiness. Happiness is the key to success."</p>
+      <span class="tag">#success</span>
+    </div>
+    <div class="quote">
+      <p>"Doubt kills more dreams than failure ever will."</p>
+      <span class="tag">#dreams</span>
+    </div>
+    <div class="quote">
+      <p>"You are never too old to set another goal or to dream a new dream."</p>
+      <span class="tag">#goals</span>
+    </div>
+    <div class="quote">
+      <p>"Do what you can, with what you have, where you are."</p>
+      <span class="tag">#action</span>
+    </div>
+    <div class="quote">
+      <p>"Believe you can and you're halfway there."</p>
+      <span class="tag">#believe</span>
+    </div>
 
-<div class="quote">
-  <p>"Creativity is intelligence having fun."</p>
-  <span class="tag">#creativity</span>
-</div>
-     <div id="disqus_thread" style="margin-top: 4rem;"></div>
+    <!-- Disqus Comment Section -->
+    <div id="disqus_thread" style="margin-top: 4rem;"></div>
     <script>
       var disqus_config = function () {
         this.page.url = window.location.href;

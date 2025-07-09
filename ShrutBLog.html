@@ -6,6 +6,7 @@
   <title>QuoteGalaxy</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
       margin: 0;
@@ -13,6 +14,7 @@
       background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
       color: #333;
       scroll-behavior: smooth;
+      transition: background 0.5s, color 0.5s;
     }
     header {
       background: #ff6f61;
@@ -36,6 +38,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       animation: fadeIn 1s ease forwards;
+      transition: background 0.5s, color 0.5s;
     }
     .tag {
       background: #ffd166;
@@ -45,6 +48,7 @@
       font-size: 0.8rem;
       margin-top: 0.5rem;
       color: #333;
+      transition: background 0.5s, color 0.5s;
     }
     .support-section {
       text-align: center;
@@ -54,6 +58,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       animation: fadeInUp 1s ease forwards;
+      transition: background 0.5s, color 0.5s;
     }
     .support-section img {
       max-width: 200px;
@@ -68,8 +73,8 @@
       margin-top: 3rem;
     }
     .random-btn, .action-btn {
-      display: block;
-      margin: 1rem auto;
+      display: inline-block;
+      margin: 1rem 0.5rem;
       background-color: #ff6f61;
       color: white;
       padding: 0.7rem 1.5rem;
@@ -88,6 +93,38 @@
       gap: 1rem;
       margin-top: 1rem;
     }
+    .flash {
+      animation: flash 0.4s ease-in-out;
+    }
+    .toggle-dark {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .dark-mode {
+      background: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%);
+      color: #f0f0f0;
+    }
+    .dark-mode .quote {
+      background: #333;
+      color: #f0f0f0;
+      border-left: 5px solid #ffd166;
+    }
+    .dark-mode .tag {
+      background: #444;
+      color: #ffd166;
+    }
+    .dark-mode header, .dark-mode footer {
+      background: #222;
+      color: #fff;
+    }
+    .dark-mode .support-section {
+      background: #2b2b2b;
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -100,9 +137,17 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes flash {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
+  <button class="toggle-dark" onclick="toggleDarkMode()">
+    <i id="modeIcon" class="lucide" data-lucide="moon"></i>
+  </button>
   <header>QuoteGalaxy</header>
   <div class="container">
     <button class="random-btn" onclick="showRandomQuote()">Show Random Quote</button>
@@ -111,7 +156,7 @@
     <div class="support-section">
       <h3>Support QuoteGalaxy 💖</h3>
       <p>Scan this UPI QR code to show your love:</p>
-      <img src="upiqr.png" alt="UPI QR Code">
+      <img src="Screenshot_20250709_174427_FamApp.png" alt="UPI QR Code">
       <p style="font-size: 0.9rem; color: #333;">UPI ID: <strong>7304959132@fam</strong></p>
       <p style="font-size: 0.9rem; color: #777;">Thank you for supporting this little blog!</p>
     </div>
@@ -137,7 +182,7 @@
 
   <script>
     const quotes = [
-      // English Quotes (24)
+      // 24 English
       { text: "Believe in yourself and all that you are.", tag: "#motivation" },
       { text: "Do what you can, with what you have, where you are.", tag: "#action" },
       { text: "Turn your wounds into wisdom.", tag: "#wisdom" },
@@ -148,54 +193,52 @@
       { text: "You miss 100% of the shots you don’t take.", tag: "#opportunity" },
       { text: "Every moment is a fresh beginning.", tag: "#inspiration" },
       { text: "What we think, we become.", tag: "#thoughts" },
-      { text: "The harder you work for something, the greater you’ll feel when you achieve it.", tag: "#hardwork" },
-      { text: "Change the world by being yourself.", tag: "#selflove" },
-      { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", tag: "#success" },
-      { text: "Act as if what you do makes a difference. It does.", tag: "#impact" },
-      { text: "Keep your face always toward the sunshine—and shadows will fall behind you.", tag: "#positivity" },
-      { text: "It always seems impossible until it’s done.", tag: "#perseverance" },
-      { text: "With the new day comes new strength and new thoughts.", tag: "#newbeginnings" },
-      { text: "Be the change that you wish to see in the world.", tag: "#change" },
-      { text: "Strive not to be a success, but rather to be of value.", tag: "#value" },
-      { text: "The best time to plant a tree was 20 years ago. The second best time is now.", tag: "#now" },
-      { text: "An unexamined life is not worth living.", tag: "#philosophy" },
-      { text: "Whether you think you can or you think you can’t, you’re right.", tag: "#mindset" },
-      { text: "Do one thing every day that scares you.", tag: "#courage" },
-      { text: "Everything you can imagine is real.", tag: "#imagination" },
-
-      // Hindi Quotes (12)
+      { text: "The harder you work, the luckier you get.", tag: "#hardwork" },
+      { text: "Big journeys begin with small steps.", tag: "#journey" },
+      { text: "Success doesn’t come to you. You go to it.", tag: "#success" },
+      { text: "Change the world by being yourself.", tag: "#life" },
+      { text: "Never stop learning because life never stops teaching.", tag: "#learning" },
+      { text: "The best view comes after the hardest climb.", tag: "#climb" },
+      { text: "Stay positive. Work hard. Make it happen.", tag: "#positive" },
+      { text: "Be somebody who makes everybody feel like a somebody.", tag: "#kindness" },
+      { text: "Hustle in silence and let your success make the noise.", tag: "#hustle" },
+      { text: "Success is not the key to happiness. Happiness is the key to success.", tag: "#success" },
+      { text: "Don’t wait. The time will never be just right.", tag: "#time" },
+      { text: "The expert in anything was once a beginner.", tag: "#growth" },
+      { text: "A goal without a plan is just a wish.", tag: "#planning" },
+      { text: "Work hard in silence. Let success be your noise.", tag: "#grind" },
+      // 12 Hindi
       { text: "हर दिन एक नई शुरुआत है।", tag: "#नईशुरुआत" },
       { text: "जो समय को बर्बाद करता है, समय उसे बर्बाद कर देता है।", tag: "#समय" },
       { text: "सपने वो नहीं जो नींद में आए, सपने वो हैं जो नींद नहीं आने दें।", tag: "#सपना" },
       { text: "बड़ा सोचो, बड़ा करो।", tag: "#सोच" },
       { text: "सच्ची सफलता आत्मसंतोष है।", tag: "#सफलता" },
-      { text: "कठिनाइयाँ आपको मजबूत बनाती हैं।", tag: "#साहस" },
-      { text: "जहां चाह, वहां राह।", tag: "#motivation" },
-      { text: "सपने वो नहीं जो हम सोते समय देखते हैं, सपने वो हैं जो हमें सोने नहीं देते।", tag: "#dream" },
-      { text: "हर सफलता के पीछे मेहनत की कहानी होती है।", tag: "#story" },
-      { text: "इंसान अपने विचारों से महान बनता है।", tag: "#thought" },
-      { text: "मुश्किलें केवल सबसे बहादुर को चुनती हैं।", tag: "#challenge" },
-      { text: "आज का काम कभी कल पर मत छोड़ो।", tag: "#discipline" },
-
-      // Gujarati Quotes (12)
+      { text: "कड़ी मेहनत का फल मीठा होता है।", tag: "#मेहनत" },
+      { text: "जो होता है अच्छे के लिए होता है।", tag: "#भरोसा" },
+      { text: "अपने आप में विश्वास रखो।", tag: "#आत्मविश्वास" },
+      { text: "मन की शक्ति ही सबसे बड़ी शक्ति है।", tag: "#शक्ति" },
+      { text: "हर परिस्थिति एक अवसर है।", tag: "#अवसर" },
+      { text: "जो गिरता है वही उठना सीखता है।", tag: "#सीख" },
+      { text: "ईमानदारी सबसे बड़ी नीति है।", tag: "#ईमानदारी" },
+      // 12 Gujarati
       { text: "સફળતા એ શ્રમનો પરિણામ છે.", tag: "#સફળતા" },
       { text: "સારા વિચારો સારું જીવન આપે છે.", tag: "#વિચાર" },
       { text: "મહેનત કરે તે જીતે છે.", tag: "#મહેનત" },
       { text: "જેમ ચિંતા કરો તેમ બને.", tag: "#વિચાર" },
-      { text: "નાનું પગલું પણ સફળતાની દિશામાં મોટું છે.", tag: "#પ્રેરણા" },
-      { text: "વિજ્ઞાન એ સમજવાનો માર્ગ છે.", tag: "#જ્ઞાન" },
-      { text: "આજે તમે શું કરો છો એ જ તમારું આવતીકાલ બનાવે છે.", tag: "#ફ્યુચર" },
-      { text: "વિનમ્રતા એ સાચી શક્તિ છે.", tag: "#મુલ્ય" },
-      { text: "જીવન એ એક સફર છે, સ્પર્ધા નહીં.", tag: "#શાંતિ" },
-      { text: "સમયની કિંમત સમજો, તે પાછો નહીં આવે.", tag: "#સમય" },
-      { text: "વિજય એ શરૂઆતથી થતો નથી, તે સતત પ્રયાસથી આવે છે.", tag: "#વિજય" },
-      { text: "પ્રેમ અને સંસ્કાર માણસને મહાન બનાવે છે.", tag: "#માણસતા" }
+      { text: "વિજય એ ધીરજ ધરનારનો હોય છે.", tag: "#ધીરજ" },
+      { text: "શ્રમ કરશો તો સફળતા મળશે.", tag: "#શ્રમ" },
+      { text: "વિશ્રામ પછી કાર્યને વધુ શક્તિથી કરો.", tag: "#ઉર્જા" },
+      { text: "શ્રદ્ધા અને વિશ્વાસથી કામ કરો.", tag: "#વિશ્વાસ" },
+      { text: "દરેક મુશ્કેલી પાછળ કોઈ તક છુપાયેલી હોય છે.", tag: "#તક" },
+      { text: "અનુભવ એ શ્રેષ્ઠ શિક્ષક છે.", tag: "#અનુભવ" },
+      { text: "શાંતિ એ આંતરિક બાબત છે.", tag: "#શાંતિ" },
+      { text: "સતત પ્રયત્નોથી સફળતા મળે છે.", tag: "#પ્રયત્ન" }
     ];
 
     function showRandomQuote() {
       const random = quotes[Math.floor(Math.random() * quotes.length)];
       document.getElementById('quoteContainer').innerHTML = `
-        <div class="quote">
+        <div class="quote" id="quoteBox">
           <p id="quoteText">"${random.text}"</p>
           <span class="tag">${random.tag}</span>
           <div class="action-buttons">
@@ -208,21 +251,38 @@
 
     function copyQuote() {
       const quoteText = document.getElementById('quoteText').innerText;
-      navigator.clipboard.writeText(quoteText).then(() => alert('Quote copied!'));
+      navigator.clipboard.writeText(quoteText).then(() => {
+        const box = document.getElementById('quoteBox');
+        box.classList.add('flash');
+        setTimeout(() => box.classList.remove('flash'), 300);
+        alert('Quote copied!');
+      });
     }
 
     function shareQuote() {
       const quoteText = document.getElementById('quoteText').innerText;
+      const box = document.getElementById('quoteBox');
+      box.classList.add('flash');
+      setTimeout(() => box.classList.remove('flash'), 300);
       if (navigator.share) {
-        navigator.share({
-          text: quoteText
-        }).catch(err => console.error(err));
+        navigator.share({ text: quoteText }).catch(err => console.error(err));
       } else {
         alert('Sharing not supported on this browser. You can copy the quote instead.');
       }
     }
 
-    showRandomQuote();
+    function toggleDarkMode() {
+      const body = document.body;
+      const icon = document.getElementById('modeIcon');
+      body.classList.toggle('dark-mode');
+      icon.setAttribute('data-lucide', body.classList.contains('dark-mode') ? 'sun' : 'moon');
+      lucide.createIcons();
+    }
+
+    window.onload = () => {
+      lucide.createIcons();
+      showRandomQuote();
+    };
   </script>
 </body>
 </html>

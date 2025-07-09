@@ -1,13 +1,11 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuoteGalaxy</title>
 
-  <!-- AdSense Verification Code (add yours below if needed) -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
-          crossorigin="anonymous"></script> -->
+
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -102,6 +100,54 @@
     <div class="quote">
       <p>"Believe you can and you're halfway there."</p>
       <span class="tag">#believe</span>
+    </div>
+    <div class="quote">
+      <p>"Your time is limited, so don’t waste it living someone else’s life."</p>
+      <span class="tag">#truth</span>
+    </div>
+    <div class="quote">
+      <p>"It always seems impossible until it’s done."</p>
+      <span class="tag">#determination</span>
+    </div>
+    <div class="quote">
+      <p>"Try to be a rainbow in someone’s cloud."</p>
+      <span class="tag">#kindness</span>
+    </div>
+    <div class="quote">
+      <p>"Turn your wounds into wisdom."</p>
+      <span class="tag">#wisdom</span>
+    </div>
+    <div class="quote">
+      <p>"We are what we repeatedly do. Excellence, then, is not an act, but a habit."</p>
+      <span class="tag">#excellence</span>
+    </div>
+    <div class="quote">
+      <p>"Act as if what you do makes a difference. It does."</p>
+      <span class="tag">#purpose</span>
+    </div>
+    <div class="quote">
+      <p>"To handle yourself, use your head; to handle others, use your heart."</p>
+      <span class="tag">#leadership</span>
+    </div>
+    <div class="quote">
+      <p>"What you get by achieving your goals is not as important as what you become by achieving your goals."</p>
+      <span class="tag">#growth</span>
+    </div>
+    <div class="quote">
+      <p>"A person who never made a mistake never tried anything new."</p>
+      <span class="tag">#learning</span>
+    </div>
+    <div class="quote">
+      <p>"Don’t let yesterday take up too much of today."</p>
+      <span class="tag">#focus</span>
+    </div>
+    <div class="quote">
+      <p>"Strive not to be a success, but rather to be of value."</p>
+      <span class="tag">#value</span>
+    </div>
+    <div class="quote">
+      <p>"Life is 10% what happens to us and 90% how we react to it."</p>
+      <span class="tag">#attitude</span>
     </div>
 
     <!-- Disqus Comment Section -->

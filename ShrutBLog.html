@@ -4,16 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuoteGalaxy</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      background: linear-gradient(135deg, #ffd8cb 0%, #ffe4b5 100%);
       color: #333;
-      scroll-behavior: smooth;
       transition: background 0.5s, color 0.5s;
     }
     header {
@@ -23,78 +21,76 @@
       text-align: center;
       font-size: 2rem;
       font-weight: bold;
-      animation: slideDown 1s ease-out;
     }
     .container {
-      max-width: 800px;
+      max-width: 960px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 1rem;
     }
-    .quote {
+    .category-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .category {
+      background: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .category:hover {
+      transform: scale(1.05);
+      background: #ffe9dc;
+    }
+    .quote-box {
       background: white;
       padding: 1.5rem;
-      margin: 1rem 0;
       border-left: 5px solid #ff6f61;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease forwards;
-      transition: background 0.5s, color 0.5s;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .tag {
-      background: #ffd166;
       display: inline-block;
+      margin-top: 0.5rem;
+      background: #ffd166;
       padding: 0.3rem 0.7rem;
       border-radius: 4px;
       font-size: 0.8rem;
-      margin-top: 0.5rem;
-      color: #333;
-      transition: background 0.5s, color 0.5s;
     }
-    .support-section {
-      text-align: center;
-      margin-top: 3rem;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      animation: fadeInUp 1s ease forwards;
-      transition: background 0.5s, color 0.5s;
-    }
-    .support-section img {
-      max-width: 200px;
-      margin: 1rem auto;
-      border-radius: 12px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #fcb69f;
-      color: #fff;
-      margin-top: 3rem;
-    }
-    .random-btn, .action-btn {
-      display: inline-block;
-      margin: 1rem 0.5rem;
-      background-color: #ff6f61;
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .random-btn:hover, .action-btn:hover {
-      background-color: #e85b50;
-    }
-    .action-buttons {
+    .actions {
+      margin-top: 1rem;
       display: flex;
       justify-content: center;
       gap: 1rem;
-      margin-top: 1rem;
     }
-    .flash {
-      animation: flash 0.4s ease-in-out;
+    .btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #ff6f61;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #e95b50;
+    }
+    .dark-mode {
+      background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+      color: #f0f0f0;
+    }
+    .dark-mode header {
+      background: #111;
+    }
+    .dark-mode .category, .dark-mode .quote-box {
+      background: #3a3a3a;
+      color: #f0f0f0;
     }
     .toggle-dark {
       position: fixed;
@@ -103,44 +99,7 @@
       background: none;
       border: none;
       cursor: pointer;
-      z-index: 999;
-    }
-    .dark-mode {
-      background: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%);
-      color: #f0f0f0;
-    }
-    .dark-mode .quote {
-      background: #333;
-      color: #f0f0f0;
-      border-left: 5px solid #ffd166;
-    }
-    .dark-mode .tag {
-      background: #444;
-      color: #ffd166;
-    }
-    .dark-mode header, .dark-mode footer {
-      background: #222;
-      color: #fff;
-    }
-    .dark-mode .support-section {
-      background: #2b2b2b;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes flash {
-      0% { opacity: 1; }
-      50% { opacity: 0.3; }
-      100% { opacity: 1; }
+      z-index: 1000;
     }
   </style>
 </head>
@@ -148,24 +107,40 @@
   <button class="toggle-dark" onclick="toggleDarkMode()">
     <i id="modeIcon" data-lucide="moon"></i>
   </button>
-  <header>QuoteGalaxy</header>
+  <header>QuoteGalaxy 🌠</header>
   <div class="container">
-    <button class="random-btn" onclick="showRandomQuote()">Show Random Quote</button>
-    <div id="quoteContainer"></div>
+    <div class="category-selector">
+      <div class="category" onclick="showCategory('inspirational')">🌟 Inspirational</div>
+      <div class="category" onclick="showCategory('life')">🌿 Life</div>
+      <div class="category" onclick="showCategory('love')">❤️ Love</div>
+      <div class="category" onclick="showCategory('friendship')">🤝 Friendship</div>
+      <div class="category" onclick="showCategory('happiness')">😊 Happiness</div>
+      <div class="category" onclick="showCategory('funny')">😄 Funny</div>
+      <div class="category" onclick="showCategory('sad')">😢 Sad</div>
+      <div class="category" onclick="showCategory('wisdom')">🧠 Wisdom</div>
+      <div class="category" onclick="showCategory('strength')">💪 Strength</div>
+      <div class="category" onclick="showCategory('nature')">🌳 Nature</div>
+      <div class="category" onclick="showCategory('music')">🎵 Music</div>
+    </div>
 
-    <div class="support-section">
+    <div id="quoteContainer"></div>
+    <div class="actions">
+      <button class="btn" onclick="randomQuote()">🎲 Random Quote</button>
+      <button class="btn" onclick="copyQuote()">📋 Copy</button>
+      <button class="btn" onclick="shareQuote()">📤 Share</button>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem">
       <h3>Support QuoteGalaxy 💖</h3>
-      <p>Scan this UPI QR code to show your love:</p>
-      <img src="Screenshot_20250709_174427_FamApp.png" alt="UPI QR Code">
-      <p style="font-size: 0.9rem; color: #333;">UPI ID: <strong>7304959132@fam</strong></p>
-      <p style="font-size: 0.9rem; color: #777;">Thank you for supporting this little blog!</p>
+      <img src="Screenshot_20250709_174427_FamApp.png" alt="UPI QR Code" style="max-width:200px;border-radius:12px" />
+      <p><strong>UPI ID:</strong> 7304959132@fam</p>
     </div>
 
     <div id="disqus_thread" style="margin-top: 4rem;"></div>
     <script>
       var disqus_config = function () {
         this.page.url = window.location.href;
-        this.page.identifier = 'quotegalaxy-home';
+        this.page.identifier = 'quotegalaxy';
       };
       (function() {
         var d = document, s = d.createElement('script');
@@ -174,102 +149,109 @@
         (d.head || d.body).appendChild(s);
       })();
     </script>
-    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
   </div>
-  <footer>
-    &copy; 2025 QuoteGalaxy | Made with ❤️ for quote lovers
-  </footer>
-
   <script>
-    const quotes = [
-      // 24 English Quotes
-      { text: "Believe in yourself and all that you are.", tag: "#motivation" },
-      { text: "Do what you can, with what you have, where you are.", tag: "#action" },
-      { text: "Turn your wounds into wisdom.", tag: "#wisdom" },
-      { text: "Happiness depends upon ourselves.", tag: "#happiness" },
-      { text: "Dream big and dare to fail.", tag: "#dreams" },
-      { text: "If you can dream it, you can do it.", tag: "#believe" },
-      { text: "The only limit to our realization of tomorrow is our doubts of today.", tag: "#future" },
-      { text: "Change your thoughts and you change your world.", tag: "#thoughts" },
-      { text: "Success is not final, failure is not fatal.", tag: "#success" },
-      { text: "Keep your face always toward the sunshine.", tag: "#positivity" },
-      { text: "Don’t watch the clock; do what it does. Keep going.", tag: "#time" },
-      { text: "Action is the foundational key to all success.", tag: "#key" },
-      { text: "You are never too old to set another goal.", tag: "#goal" },
-      { text: "Try to be a rainbow in someone's cloud.", tag: "#kindness" },
-      { text: "Believe you can and you're halfway there.", tag: "#believe" },
-      { text: "Success usually comes to those who are too busy to be looking for it.", tag: "#work" },
-      { text: "In the middle of difficulty lies opportunity.", tag: "#challenge" },
-      { text: "Great minds discuss ideas; average minds discuss events.", tag: "#mindset" },
-      { text: "Do not wait to strike till the iron is hot.", tag: "#opportunity" },
-      { text: "Well done is better than well said.", tag: "#action" },
-      { text: "If you're going through hell, keep going.", tag: "#perseverance" },
-      { text: "Strive not to be a success, but to be of value.", tag: "#value" },
-      { text: "The best revenge is massive success.", tag: "#revenge" },
-      { text: "Your time is limited, so don’t waste it.", tag: "#time" },
+    const quotes = {
+      inspirational: [
+        "Believe in yourself and all that you are.",
+        "Act as if what you do makes a difference. It does.",
+        "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        "Hardships often prepare ordinary people for an extraordinary destiny."
+      ],
+      life: [
+        "Life is what happens when you're busy making other plans.",
+        "Get busy living or get busy dying.",
+        "Life is short, and it's up to you to make it sweet.",
+        "In the middle of difficulty lies opportunity."
+      ],
+      love: [
+        "Love is composed of a single soul inhabiting two bodies.",
+        "Where there is love there is life.",
+        "We accept the love we think we deserve.",
+        "To love and be loved is to feel the sun from both sides."
+      ],
+      friendship: [
+        "Friendship is the only cement that will ever hold the world together.",
+        "A real friend is one who walks in when the rest of the world walks out.",
+        "Friendship doubles your joys and divides your sorrows.",
+        "Friends are the family we choose."
+      ],
+      happiness: [
+        "Happiness is not by chance, but by choice.",
+        "Be happy for this moment. This moment is your life.",
+        "The purpose of our lives is to be happy.",
+        "Happiness depends upon ourselves."
+      ],
+      funny: [
+        "I'm not arguing, I'm just explaining why I'm right.",
+        "I'm on a seafood diet. I see food and I eat it.",
+        "Life is short. Smile while you still have teeth.",
+        "If at first you don’t succeed, then skydiving definitely isn’t for you."
+      ],
+      sad: [
+        "Tears come from the heart and not from the brain.",
+        "It's sad when someone you know becomes someone you knew.",
+        "Sometimes, you just have to pretend that you're happy.",
+        "The worst kind of sad is not being able to explain why."
+      ],
+      wisdom: [
+        "Knowing yourself is the beginning of all wisdom.",
+        "Turn your wounds into wisdom.",
+        "Honesty is the first chapter in the book of wisdom.",
+        "The only true wisdom is in knowing you know nothing."
+      ],
+      strength: [
+        "Strength does not come from the physical capacity. It comes from an indomitable will.",
+        "That which does not kill us makes us stronger.",
+        "You never know how strong you are until being strong is your only choice.",
+        "The world breaks everyone, and afterward, some are strong at the broken places."
+      ],
+      nature: [
+        "In all things of nature there is something of the marvelous.",
+        "Look deep into nature, and then you will understand everything better.",
+        "Adopt the pace of nature: her secret is patience.",
+        "The earth has music for those who listen."
+      ],
+      music: [
+        "Where words fail, music speaks.",
+        "Music is the shorthand of emotion.",
+        "Music gives a soul to the universe, wings to the mind.",
+        "Life is a song, love is the music."
+      ]
+    };
 
-      // 12 Hindi Quotes
-      { text: "हर दिन एक नई शुरुआत है।", tag: "#नईशुरुआत" },
-      { text: "जो समय को बर्बाद करता है, समय उसे बर्बाद कर देता है।", tag: "#समय" },
-      { text: "सपने वो नहीं जो नींद में आए, सपने वो हैं जो नींद नहीं आने दें।", tag: "#सपना" },
-      { text: "कभी हार मत मानो।", tag: "#संघर्ष" },
-      { text: "अपने लक्ष्य की ओर ध्यान केंद्रित करो।", tag: "#लक्ष्य" },
-      { text: "समय सबसे बड़ा धन है।", tag: "#समय" },
-      { text: "धैर्य सफलता की कुंजी है।", tag: "#धैर्य" },
-      { text: "श्रम का फल मीठा होता है।", tag: "#मेहनत" },
-      { text: "अच्छा सोचो, अच्छा होगा।", tag: "#सोच" },
-      { text: "जहाँ चाह वहाँ राह।", tag: "#प्रेरणा" },
-      { text: "खुद पर विश्वास रखो।", tag: "#आत्मविश्वास" },
-      { text: "कर्म ही पूजा है।", tag: "#कर्म" },
+    let currentQuote = '';
 
-      // 12 Gujarati Quotes
-      { text: "સફળતા એ શ્રમનો પરિણામ છે.", tag: "#સફળતા" },
-      { text: "સારા વિચારો સારું જીવન આપે છે.", tag: "#વિચાર" },
-      { text: "મહેનત કરે તે જીતે છે.", tag: "#મહેનત" },
-      { text: "સપના જુઓ અને તેને પૂરા કરો.", tag: "#સપના" },
-      { text: "સફળતા પગલાંઓથી મળે છે.", tag: "#પ્રયત્ન" },
-      { text: "શાંતિથી કામ કરો અને આગળ વધો.", tag: "#શાંતિ" },
-      { text: "વિશ્વાસ રાખો, બધું સારું થશે.", tag: "#વિશ્વાસ" },
-      { text: "સમયની કદર કરો.", tag: "#સમય" },
-      { text: "ઘણી વાર શાંતિમાં શક્તિ હોય છે.", tag: "#શક્તિ" },
-      { text: "સકારાત્મક રહો અને સફળતા મેળવો.", tag: "#સકારાત્મક" },
-      { text: "મફતનો સુઝાવ નથી આવતો.", tag: "#જ્ઞાન" },
-      { text: "ખુશ રહો અને હંમેશા શીખો.", tag: "#ખુશી" }
-    ];
-
-    function showRandomQuote() {
-      const random = quotes[Math.floor(Math.random() * quotes.length)];
-      document.getElementById('quoteContainer').innerHTML = `
-        <div class="quote" id="quoteBox">
-          <p id="quoteText">"${random.text}"</p>
-          <span class="tag">${random.tag}</span>
-          <div class="action-buttons">
-            <button class="action-btn" onclick="copyQuote()">Copy</button>
-            <button class="action-btn" onclick="shareQuote()">Share</button>
-          </div>
+    function showCategory(category) {
+      const quoteContainer = document.getElementById('quoteContainer');
+      const quote = quotes[category][Math.floor(Math.random() * quotes[category].length)];
+      currentQuote = quote;
+      quoteContainer.innerHTML = `
+        <div class="quote-box">
+          <p id="quoteText">"${quote}"</p>
+          <div class="tag">#${category}</div>
         </div>
       `;
     }
 
+    function randomQuote() {
+      const categories = Object.keys(quotes);
+      const category = categories[Math.floor(Math.random() * categories.length)];
+      showCategory(category);
+    }
+
     function copyQuote() {
-      const quoteText = document.getElementById('quoteText').innerText;
-      navigator.clipboard.writeText(quoteText).then(() => {
-        const box = document.getElementById('quoteBox');
-        box.classList.add('flash');
-        setTimeout(() => box.classList.remove('flash'), 300);
-        alert('Quote copied!');
-      });
+      if (!currentQuote) return alert('No quote to copy!');
+      navigator.clipboard.writeText(currentQuote);
+      alert('Quote copied!');
     }
 
     function shareQuote() {
-      const quoteText = document.getElementById('quoteText').innerText;
-      const box = document.getElementById('quoteBox');
-      box.classList.add('flash');
-      setTimeout(() => box.classList.remove('flash'), 300);
+      if (!currentQuote) return alert('No quote to share!');
       if (navigator.share) {
-        navigator.share({ text: quoteText }).catch(err => console.error(err));
+        navigator.share({ text: currentQuote });
       } else {
-        alert('Sharing not supported on this browser. You can copy the quote instead.');
+        alert('Sharing not supported. Please copy instead.');
       }
     }
 
@@ -283,7 +265,6 @@
 
     window.onload = () => {
       lucide.createIcons();
-      showRandomQuote();
     };
   </script>
 </body>
